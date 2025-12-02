@@ -34,6 +34,61 @@ if (hamburger && navMenu && navLinks.length > 0) {
     });
 }
 
+// Side Nav - Alternar Conteúdo
+const conteudos = {
+    historia: {
+        titulo: "Almir Rogério",
+        subtitulo: "Contabilidade e Desenvolvimento local",
+        descricao: "Cearense e formado em Administração, abriu sua empresa de contabilidade em 2007. O que começou como um sonho virou um negócio, que hoje é referência na região graças ao seu trabalho e dedicação."
+    },
+    apresentacao: {
+        titulo: "Almir Rogério",
+        subtitulo: "Contabilidade e Desenvolvimento local",
+        descricao: "Almir Rogério dos Santos, conhecido como Almir da Exatus, é contador, empreendedor e pré-candidato a deputado estadual. Carrega 25 anos de atuação em gestão e contabilidade, formando uma história guiada por dedicação, ética, compromisso e um olhar firme para fazer a diferença em São Paulo."
+    },
+    perfil: {
+        titulo: "Almir Rogério",
+        subtitulo: "Empresário e Contador",
+        descricao: "Proprietário da Exatus Contabilidade, referência em gestão empresarial e consultoria. Ao longo da carreira, ajudou centenas de empresas a crescerem. Sua experiência em gestão e negócios o preparou para entender as reais necessidades de quem empreende e de quem trabalha."
+    },
+    trajetoria: {
+        titulo: "Almir Rogério",
+        subtitulo: "Compromisso com São Paulo",
+        descricao: "Desde 2007, Almir Rogério dos Santos, tem se dedicado a transformar a vida de empreendedores e trabalhadores por meio da contabilidade. Com uma trajetória marcada por ética, compromisso e paixão pelo que faz, Almir construiu a Exatus Contabilidade, uma empresa que é referência em Bertioga."
+    }
+};
+
+const sideNavLinks = document.querySelectorAll('.side-nav a');
+const titulo = document.getElementById('titulo');
+const subtitulo = document.getElementById('subtitulo');
+const descricao = document.getElementById('desc');
+
+sideNavLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove active de todos
+        sideNavLinks.forEach(l => l.parentElement.classList.remove('active'));
+        
+        // Adiciona active no clicado
+        this.parentElement.classList.add('active');
+        
+        // Pega o conteúdo correspondente
+        const tipo = this.getAttribute('data-conteudo');
+        const conteudo = conteudos[tipo];
+        
+        // Atualiza o conteúdo com fade
+        descricao.style.opacity = '0';
+        
+        setTimeout(() => {
+            titulo.textContent = conteudo.titulo;
+            subtitulo.textContent = conteudo.subtitulo;
+            descricao.textContent = conteudo.descricao;
+            descricao.style.opacity = '1';
+        }, 300);
+    });
+});
+
 // Scroll suave para seções
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
