@@ -5,7 +5,9 @@ const navLinks = document.querySelectorAll('.menu-navegacao a');
 
 if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        navMenu
+            .classList
+            .toggle('active');
 
         // Animação do hamburger
         const spans = hamburger.querySelectorAll('span');
@@ -25,7 +27,9 @@ if (hamburger && navMenu) {
 if (hamburger && navMenu && navLinks.length > 0) {
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
+            navMenu
+                .classList
+                .remove('active');
             const spans = hamburger.querySelectorAll('span');
             spans[0].style.transform = 'none';
             spans[1].style.opacity = '1';
@@ -39,22 +43,33 @@ const conteudos = {
     historia: {
         titulo: "Almir Rogério",
         subtitulo: "Contabilidade e Desenvolvimento local",
-        descricao: "Cearense e formado em Administração, abriu sua empresa de contabilidade em 2007. O que começou como um sonho virou um negócio, que hoje é referência na região graças ao seu trabalho e dedicação."
+        descricao: "Cearense e formado em Administração, abriu sua empresa de contabilidade em 200" +
+                "7. O que começou como um sonho virou um negócio, que hoje é referência na regi" +
+                "ão graças ao seu trabalho e dedicação."
     },
     apresentacao: {
         titulo: "Almir Rogério",
         subtitulo: "Contabilidade e Desenvolvimento local",
-        descricao: "Almir Rogério dos Santos, conhecido como Almir da Exatus, é contador, empreendedor e pré-candidato a deputado estadual. Carrega 25 anos de atuação em gestão e contabilidade, formando uma história guiada por dedicação, ética, compromisso e um olhar firme para fazer a diferença em São Paulo."
+        descricao: "Almir Rogério dos Santos, conhecido como Almir da Exatus, é contador, empreend" +
+                "edor e pré-candidato a deputado estadual. Carrega 25 anos de atuação em gestão" +
+                " e contabilidade, formando uma história guiada por dedicação, ética, compromis" +
+                "so e um olhar firme para fazer a diferença em São Paulo."
     },
     perfil: {
         titulo: "Almir Rogério",
         subtitulo: "Empresário e Contador",
-        descricao: "Proprietário da Exatus Contabilidade, referência em gestão empresarial e consultoria. Ao longo da carreira, ajudou centenas de empresas a crescerem. Sua experiência em gestão e negócios o preparou para entender as reais necessidades de quem empreende e de quem trabalha."
+        descricao: "Proprietário da Exatus Contabilidade, referência em gestão empresarial e consu" +
+                "ltoria. Ao longo da carreira, ajudou centenas de empresas a crescerem. Sua exp" +
+                "eriência em gestão e negócios o preparou para entender as reais necessidades d" +
+                "e quem empreende e de quem trabalha."
     },
     trajetoria: {
         titulo: "Almir Rogério",
         subtitulo: "Compromisso com São Paulo",
-        descricao: "Desde 2007, Almir Rogério dos Santos, tem se dedicado a transformar a vida de empreendedores e trabalhadores por meio da contabilidade. Com uma trajetória marcada por ética, compromisso e paixão pelo que faz, Almir construiu a Exatus Contabilidade, uma empresa que é referência em Bertioga."
+        descricao: "Desde 2007, Almir Rogério dos Santos, tem se dedicado a transformar a vida de " +
+                "empreendedores e trabalhadores por meio da contabilidade. Com uma trajetória m" +
+                "arcada por ética, compromisso e paixão pelo que faz, Almir construiu a Exatus " +
+                "Contabilidade, uma empresa que é referência em Bertioga."
     }
 };
 
@@ -64,22 +79,25 @@ const subtitulo = document.getElementById('subtitulo');
 const descricao = document.getElementById('desc');
 
 sideNavLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         // Remove active de todos
         sideNavLinks.forEach(l => l.parentElement.classList.remove('active'));
-        
+
         // Adiciona active no clicado
-        this.parentElement.classList.add('active');
-        
+        this
+            .parentElement
+            .classList
+            .add('active');
+
         // Pega o conteúdo correspondente
         const tipo = this.getAttribute('data-conteudo');
         const conteudo = conteudos[tipo];
-        
+
         // Atualiza o conteúdo com fade
         descricao.style.opacity = '0';
-        
+
         setTimeout(() => {
             titulo.textContent = conteudo.titulo;
             subtitulo.textContent = conteudo.subtitulo;
@@ -89,23 +107,24 @@ sideNavLinks.forEach(link => {
     });
 });
 
-// Scroll suave para seções
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+// Scroll para seções
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target
+                    .getBoundingClientRect()
+                    .top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
+                window.scrollTo({top: offsetPosition, behavior: 'smooth'});
+            }
+        });
     });
-});
 
 // Header com efeito de scroll
 let lastScroll = 0;
@@ -146,7 +165,9 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Adicionar animação aos cards
-const animatedElements = document.querySelectorAll('.cartao-projeto, .vantagem-card, .verba-item, .instituto-oferece li');
+const animatedElements = document.querySelectorAll(
+    '.cartao-projeto, .vantagem-card, .verba-item, .instituto-oferece li'
+);
 animatedElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
@@ -167,7 +188,7 @@ const timelineObserver = new IntersectionObserver((entries) => {
             }, 100);
         }
     });
-}, { threshold: 0.5 });
+}, {threshold: 0.5});
 
 timelineBars.forEach(bar => {
     timelineObserver.observe(bar);
@@ -183,7 +204,9 @@ const animateCounter = (element, target, duration) => {
             element.textContent = target.toLocaleString('pt-BR');
             clearInterval(timer);
         } else {
-            element.textContent = Math.floor(current).toLocaleString('pt-BR');
+            element.textContent = Math
+                .floor(current)
+                .toLocaleString('pt-BR');
         }
     }, 16);
 };
@@ -192,15 +215,20 @@ const numberObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
             const target = parseInt(entry.target.textContent.replace(/\D/g, ''));
-            entry.target.classList.add('animated');
+            entry
+                .target
+                .classList
+                .add('animated');
             animateCounter(entry.target, target, 2000);
         }
     });
-}, { threshold: 0.5 });
+}, {threshold: 0.5});
 
-document.querySelectorAll('.timeline-item .number').forEach(num => {
-    numberObserver.observe(num);
-});
+document
+    .querySelectorAll('.timeline-item .number')
+    .forEach(num => {
+        numberObserver.observe(num);
+    });
 
 // Animar número de satisfação
 const satisfactionNumber = document.querySelector('.numero-estatistica');
@@ -208,7 +236,10 @@ if (satisfactionNumber) {
     const satisfactionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-                entry.target.classList.add('animated');
+                entry
+                    .target
+                    .classList
+                    .add('animated');
                 let current = 0;
                 const target = 98;
                 const timer = setInterval(() => {
@@ -220,14 +251,14 @@ if (satisfactionNumber) {
                 }, 20);
             }
         });
-    }, { threshold: 0.5 });
+    }, {threshold: 0.5});
 
     satisfactionObserver.observe(satisfactionNumber);
 }
 
-// User-requested: Use exact jQuery code for AJAX form submission and prevent redirect
-$(function() {
-    $("form#formularioContato").submit(function(e) {
+// codigo do formulário de contato com AJAX para não redirecionar
+$(function () {
+    $("form#formularioContato").submit(function (e) {
         e.preventDefault();
         var form = this;
         $.ajax({
@@ -238,14 +269,14 @@ $(function() {
             headers: {
                 'Accept': 'application/json'
             },
-            success: function() {
+            success: function () {
                 $("#popupSucessoFormulario").fadeIn(300);
-                setTimeout(function() {
+                setTimeout(function () {
                     $("#popupSucessoFormulario").fadeOut(300);
                 }, 2500);
                 form.reset();
             },
-            error: function() {
+            error: function () {
                 alert("Erro ao enviar o formulário.");
             }
         });
@@ -260,13 +291,18 @@ function showError(input, message) {
     errorDiv.style.fontSize = '0.85rem';
     errorDiv.style.marginTop = '0.3rem';
     errorDiv.textContent = message;
-    input.parentElement.appendChild(errorDiv);
+    input
+        .parentElement
+        .appendChild(errorDiv);
     input.style.borderBottomColor = '#e74c3c';
 }
 
 function removeError(input) {
-    const errorDiv = input.parentElement.querySelector('.error-message');
-    if (errorDiv) errorDiv.remove();
+    const errorDiv = input
+        .parentElement
+        .querySelector('.error-message');
+    if (errorDiv) 
+        errorDiv.remove();
     input.style.borderBottomColor = '#ddd';
 }
 
@@ -280,15 +316,17 @@ window.addEventListener('scroll', () => {
 });
 
 // Hover nos cards
-document.querySelectorAll('.cartao-projeto, .vantagem-card').forEach(card => {
-    card.addEventListener('mouseenter', function () {
-        this.style.transform = 'translateY(-10px)';
-    });
+document
+    .querySelectorAll('.cartao-projeto, .vantagem-card')
+    .forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-10px)';
+        });
 
-    card.addEventListener('mouseleave', function () {
-        this.style.transform = 'translateY(0)';
+        card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
+        });
     });
-});
 
 // Scroll reveal para seções
 const sections = document.querySelectorAll('section');
@@ -298,7 +336,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
             entry.target.style.opacity = '1';
         }
     });
-}, { threshold: 0.1 });
+}, {threshold: 0.1});
 
 sections.forEach(section => {
     section.style.opacity = '0';
@@ -306,7 +344,7 @@ sections.forEach(section => {
     sectionObserver.observe(section);
 });
 
-// Loading inicial
+// Carregamento inicial
 window.addEventListener('load', () => {
     document.body.style.opacity = '0';
     setTimeout(() => {
@@ -319,9 +357,13 @@ window.addEventListener('load', () => {
 const navObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
+            const id = entry
+                .target
+                .getAttribute('id');
             navLinks.forEach(link => {
-                link.classList.remove('active');
+                link
+                    .classList
+                    .remove('active');
                 if (link.getAttribute('href') === `#${id}`) {
                     link.style.color = 'var(--secondary)';
                 } else {
@@ -330,71 +372,77 @@ const navObserver = new IntersectionObserver((entries) => {
             });
         }
     });
-}, { threshold: 0.5 });
+}, {threshold: 0.5});
 
 sections.forEach(section => {
     navObserver.observe(section);
 });
 
 // Prevenir links sem destino
-document.querySelectorAll('a[href="#"]').forEach(link => {
-    link.addEventListener('click', (e) => e.preventDefault());
-});
+document
+    .querySelectorAll('a[href="#"]')
+    .forEach(link => {
+        link.addEventListener('click', (e) => e.preventDefault());
+    });
 
 // Slideshow automático de fotos - Executar quando DOM estiver pronto
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let currentSlide = 0;
     const slides = document.querySelectorAll('.img-perfil');
     const totalSlides = slides.length;
-    
+
     console.log('Total de slides encontrados:', totalSlides);
-    
+
     function showSlide(index) {
         console.log('Mostrando slide:', index);
         slides.forEach((slide, i) => {
             if (i === index) {
-                slide.classList.add('active');
+                slide
+                    .classList
+                    .add('active');
             } else {
-                slide.classList.remove('active');
+                slide
+                    .classList
+                    .remove('active');
             }
         });
     }
-    
+
     function nextSlide() {
         currentSlide = (currentSlide + 1) % totalSlides;
         showSlide(currentSlide);
     }
-    
+
     function prevSlide() {
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         showSlide(currentSlide);
     }
-    
+
     // Iniciar slideshow
     if (slides.length > 0) {
         showSlide(0);
-        
-        // Mudança automática a cada 4 segundos
-        const autoSlide = setInterval(nextSlide, 4000);
+
+        // Mudança automática a cada 6 segundos
+        const autoSlide = setInterval(nextSlide, 6000);
         console.log('Auto-slide iniciado');
-        
+
         // Botões de navegação
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        
+
         console.log('Prev button:', prevBtn);
         console.log('Next button:', nextBtn);
-        
+
         if (prevBtn) {
-            prevBtn.addEventListener('click', function(e) {
+            prevBtn.addEventListener('click', function (e) {
                 e.preventDefault();
                 console.log('Prev button clicado');
                 prevSlide();
             });
         }
-        
+
         if (nextBtn) {
-            nextBtn.addEventListener('click', function(e) {
+            nextBtn.addEventListener('click', function (e) {
                 e.preventDefault();
                 console.log('Next button clicado');
                 nextSlide();
@@ -405,4 +453,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-console.log('Site Almir da Exatus carregado com sucesso!');
