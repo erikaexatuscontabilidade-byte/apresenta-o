@@ -51,7 +51,7 @@ const conteudos = {
         titulo: "Almir Rogério",
         subtitulo: "Contabilidade e Desenvolvimento local",
         descricao: "Almir Rogério dos Santos, conhecido como Almir da Exatus, é contador, empreend" +
-                "edor e pré-candidato a deputado estadual. Carrega 25 anos de atuação em gestão" +
+                "edor e candidato a deputado. Carrega 25 anos de atuação em gestão" +
                 " e contabilidade, formando uma história guiada por dedicação, ética, compromis" +
                 "so e um olhar firme para fazer a diferença em São Paulo."
     },
