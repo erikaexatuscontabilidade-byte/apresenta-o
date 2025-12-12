@@ -175,24 +175,6 @@ animatedElements.forEach(el => {
     observer.observe(el);
 });
 
-// Animação das barras de crescimento
-const timelineBars = document.querySelectorAll('.timeline-item .bar');
-const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const bar = entry.target;
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 100);
-        }
-    });
-}, {threshold: 0.5});
-
-timelineBars.forEach(bar => {
-    timelineObserver.observe(bar);
-});
 
 // Contador animado
 const animateCounter = (element, target, duration) => {

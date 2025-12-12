@@ -727,12 +727,14 @@ header .logo span {
 /* Por que escolher Section */
 .secao-por-que {
   padding: 6rem 0;
-  background: #fafafa;
+  background: #2d4059;
   margin-top: 3rem;
+  color: #fff;
 }
 
 .secao-por-que .section-title {
   margin-bottom: 3rem;
+  color: #fff;
 }
 
 .why-grid {
@@ -744,18 +746,18 @@ header .logo span {
 }
 
 .cartao-por-que {
-  background: var(--white);
-  padding: 0;
-  border-radius: 0;
+  background: rgba(255,255,255,0.08);
+  padding: 1.5rem 1.2rem;
+  border-radius: 12px;
   transition: var(--transition);
   border: none;
-  border-left: 3px solid transparent;
+  border-left: 4px solid #1e3556;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   position: relative;
   overflow: visible;
-  box-shadow: none;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
 }
 
 .numero-visual {
@@ -763,8 +765,8 @@ header .logo span {
   font-weight: 900;
   line-height: 0.8;
   color: transparent;
-  -webkit-text-stroke: 2px #c0c0c0;
-  text-stroke: 2px #c0c0c0;
+  -webkit-text-stroke: 2px #fff;
+  text-stroke: 2px #fff;
   padding: 0;
   margin-right: 2rem;
   letter-spacing: -0.08em;
@@ -775,7 +777,7 @@ header .logo span {
   align-items: flex-start;
   justify-content: flex-end;
   padding-top: 0.5rem;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.05));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
 }
 
 .cartao-por-que:nth-child(odd) .numero-visual {
@@ -787,9 +789,9 @@ header .logo span {
 }
 
 .cartao-por-que:nth-child(even) .numero-visual {
-  -webkit-text-stroke: 2.5px rgba(45, 64, 89, 0.5);
-  text-stroke: 2.5px rgba(45, 64, 89, 0.5);
-  background: linear-gradient(135deg, rgba(45, 64, 89, 0.08) 0%, transparent 70%);
+  -webkit-text-stroke: 2.5px #fff;
+  text-stroke: 2.5px #fff;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 70%);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -804,14 +806,14 @@ header .logo span {
 .cartao-por-que h3 {
   font-size: 1.3rem;
   margin-bottom: 0.6rem;
-  color: var(--primary);
+  color: #fff;
   line-height: 1.2;
   font-weight: 700;
 }
 
 .cartao-por-que p {
   line-height: 1.7;
-  color: var(--gray);
+  color: #e0e0e0;
   font-size: 0.9rem;
 }
 
@@ -1216,10 +1218,13 @@ footer {
     text-align: center;
   }
 
-  .why-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
   .cartao-por-que {
     flex-direction: row;
